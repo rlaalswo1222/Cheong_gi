@@ -1703,7 +1703,7 @@
       const to = +el.dataset.countup, from = +(el.dataset.from || 0), t0 = performance.now(), dur = 1600;
       const tick = (now) => {
         const p = Math.min((now - t0) / dur, 1), e = 1 - Math.pow(1 - p, 4);
-        el.textContent = Math.round(from + (to - from) * e);
+        el.textContent = Math.round(from + (to - from) * e) + (el.dataset.suffix || '');
         if (p < 1) requestAnimationFrame(tick);
       };
       requestAnimationFrame(tick);
