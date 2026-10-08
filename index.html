@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="김민재">
+<title>청춘기획</title>
+<meta name="description" content="청춘기획(Cheong-gi) — 음악을 사랑하는 사람들이 모인 대학생 연합 밴드 동아리. 합주, 정기공연, 음악 콘텐츠.">
+<!-- 카톡 · 인스타 · 페이스북 등에 링크를 붙였을 때 뜨는 미리보기 -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="청춘기획 Cheong-gi">
+<meta property="og:title" content="청춘기획 | 대학생 연합 밴드 동아리">
+<meta property="og:description" content="음악을 사랑하는 사람들이 모여 함께 합주하고, 공연하고, 음악 콘텐츠를 만드는 대학생 연합 밴드 동아리. SINCE 2017.">
+<meta property="og:url" content="https://cheonggi.vercel.app/">
+<meta property="og:image" content="https://cheonggi.vercel.app/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CHEONG-GI 청춘기획 — 무대 위의 청춘기획">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="청춘기획 | 대학생 연합 밴드 동아리">
+<meta name="twitter:image" content="https://cheonggi.vercel.app/assets/img/og-image.jpg">
+<link rel="canonical" href="https://cheonggi.vercel.app/">
+<!-- 브라우저 탭 · 홈 화면 아이콘 -->
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bodoni+Moda:opsz,wght@6..96,400..900&family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Black+Han+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+  // 사진은 WebP(같은 화질에 용량 약 40% 작음)로 불러오고, WebP 를 못 여는 브라우저에서는 같은 이름의 JPG 로 바꿉니다
+  document.addEventListener('error', function (e) {
+    var t = e.target;
+    if (t && t.tagName === 'IMG' && /\.webp(\?|$)/i.test(t.src) && !t.dataset.jpg) {
+      t.dataset.jpg = 'now';
+      t.src = t.src.replace(/\.webp(\?|$)/i, '.jpg$1');
+    }
+  }, true);
+</script>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <img class="loader__mark" src="assets/img/logo-black.png" alt="">
+</div>
+
+
+<!-- ============ HEADER ============ -->
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#home" data-panel="home" aria-label="청춘기획 홈">
+    <img class="nav__logo-img" src="assets/img/logo.png" alt="청춘기획 CHEONG-GI">
+  </a>
+
+  <nav class="nav__group nav__group--left" aria-label="주요 메뉴">
+    <a href="#about" data-panel="about">ABOUT</a>
+    <a href="#shows" data-panel="shows">SHOWS</a>
+  </nav>
+
+  <nav class="nav__group nav__group--right" aria-label="보조 메뉴">
+    <a href="#activity" data-panel="activity">ACTIVITY</a>
+    <a href="#faq" data-panel="faq">FAQ</a>
+    <a href="#join" data-panel="join">JOIN US</a>
+  </nav>
+
+  <button class="nav__burger" id="burger" aria-label="메뉴 열기" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <a href="#home" data-panel="home">HOME</a>
+  <a href="#about" data-panel="about">ABOUT</a>
+  <a href="#shows" data-panel="shows">SHOWS</a>
+  <a href="#activity" data-panel="activity">ACTIVITY</a>
+  <a href="#faq" data-panel="faq">FAQ</a>
+  <a href="#join" data-panel="join">JOIN US</a>
+</div>
+
+<div class="topfade" aria-hidden="true"></div>
+
+<main class="panels" id="panels">
+
+  <!-- ============ HOME ============ -->
+  <section class="panel panel--home is-active" id="home" aria-label="홈">
+    <div class="hero">
+      <div class="hero__copy">
+        <h1 class="hero__title" aria-label="CHEONG-GI 청춘기획">
+          <span class="line"><span>CHEONG-GI</span></span>
+          <span class="line line--kr"><span>청춘기획</span></span>
+        </h1>
+        <div class="hero__sub">
+          <p class="hero__lead">
+            UNIVERSITY BAND CLUB IN SEOUL,<br>
+            CRAFTING YOUTH INTO SOUND.
+          </p>
+          <p class="hero__tags">JAM. STAGE. FILM. FRIENDS.</p>
+        </div>
+      </div>
+      <div class="strip" id="strip" aria-label="밴드 이미지 갤러리"></div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT — 큰 문장 하나 + 숫자 + 연대표 + 단체 사진 ============ -->
+  <section class="panel" id="about" aria-label="소개">
+    <div class="panel__inner about">
+      <div class="section__head">
+        <h2 class="section__title">ABOUT</h2>
+        <p class="section__note" data-reveal>대학생 연합 밴드 동아리 · SINCE 2017</p>
+      </div>
+
+      <div class="ab-hero">
+        <div class="ab-hero__text">
+          <p class="ab-eyebrow" data-reveal>청춘기획은 어떤 동아리인가요?</p>
+          <p class="ab-hero__big" data-reveal>청춘기획은 음악을 사랑하는 사람들이 모여 함께 다양한 음악 활동을 하는 대학생 연합 밴드 동아리입니다.</p>
+          <p class="ab-hero__lead" data-reveal>음악팀과 기획홍보팀이 협업해 곡 커버, 공연, 음악 콘텐츠, 영상/이미지 콘텐츠 제작 등 다양한 도전을 이어가며, <strong>음악적 성장과 즐거움</strong>을 가장 큰 가치로 생각합니다!</p>
+          <div class="ab-teams">
+            <div data-reveal>
+              <p class="ab-teams__name">음악팀<span>MUSIC TEAM</span></p>
+              <p>보컬 &amp; 악기 파트로, 곡 커버와 합주, 공연 등 다양한 음악 활동을 함께합니다.</p>
+            </div>
+            <div data-reveal>
+              <p class="ab-teams__name">기획홍보팀<span>PLANNING &amp; PR</span></p>
+              <p>공연과 활동을 함께 기획하고, 청춘기획을 대외적으로 알리기 위한 영상/이미지 콘텐츠 제작 및 기획, SNS 운영 등을 함께합니다.</p>
+            </div>
+          </div>
+        </div>
+        <figure class="ab-hero__ph" data-reveal>
+          <img src="assets/img/ab-hero.webp" alt="25-2 정기공연 PLAY HARD 무대의 청춘기획">
+          <figcaption><span>25-2 PLAY HARD</span><span>홍대 스윙홀</span></figcaption>
+        </figure>
+      </div>
+
+      <ul class="ab-stats">
+        <li data-reveal><span class="ab-stats__num" data-countup="2017" data-from="1990">2017</span><p>SINCE<br>청춘기획 창립</p></li>
+        <li data-reveal><span class="ab-stats__num" data-countup="14">14</span><p>정기공연<br>2018 — 2026</p></li>
+        <li data-reveal><span class="ab-stats__num" data-countup="17">17</span><p>26-2<br>MEMBERS</p></li>
+      </ul>
+
+      <div class="ab-block">
+        <p class="ab-label" data-reveal><span>WHAT WE DO</span><span>청기가 하는 일</span></p>
+        <div class="what">
+          <ol class="what__list">
+          <li class="what__item is-active" data-what="jam" data-reveal>
+            <span class="what__word">JAM</span>
+            <span class="what__kr">매주 일요일 합주</span>
+            <p class="what__desc">합정 · 홍대 · 신촌 합주실에서 매주 일요일 두 시간. 하고 싶은 곡을 함께 고르고 합을 맞춰요.</p>
+            <img class="what__inline" src="assets/img/ab-what-jam.webp" alt="합주실의 청기" loading="lazy">
+          </li>
+          <li class="what__item" data-what="stage" data-reveal>
+            <span class="what__word">STAGE</span>
+            <span class="what__kr">정기공연</span>
+            <p class="what__desc">학기마다 이름과 이야기를 붙인 정기공연을 직접 기획하고 무대에 올라요.</p>
+            <img class="what__inline" src="assets/img/ab-what-stage.webp" alt="25-2 PLAY HARD 무대" loading="lazy">
+          </li>
+          <li class="what__item" data-what="content" data-reveal>
+            <span class="what__word">CONTENT</span>
+            <span class="what__kr">콘텐츠 제작</span>
+            <p class="what__desc">포스터와 굿즈, 영상, 플레이리스트까지. 청기를 알리는 모든 것을 기획홍보팀이 만들어요.</p>
+            <img class="what__inline" src="assets/img/ab-what-content.webp" alt="거리에 붙인 입하대길 포스터" loading="lazy">
+          </li>
+          <li class="what__item" data-what="friends" data-reveal>
+            <span class="what__word">FRIENDS</span>
+            <span class="what__kr">음악 밖의 시간</span>
+            <p class="what__desc">피크닉과 MT, 뒤풀이, 마니또. 음악만큼 사람이 좋아서 모였어요.</p>
+            <img class="what__inline" src="assets/img/ab-what-friends.webp" alt="한강 벚꽃 피크닉" loading="lazy">
+          </li>
+          </ol>
+          <figure class="what__media" aria-hidden="true">
+          <img class="what__img is-active" data-what="jam" src="assets/img/ab-what-jam.webp" alt="합주실의 청기" loading="lazy">
+          <img class="what__img" data-what="stage" src="assets/img/ab-what-stage.webp" alt="25-2 PLAY HARD 무대" loading="lazy">
+          <img class="what__img" data-what="content" src="assets/img/ab-what-content.webp" alt="거리에 붙인 입하대길 포스터" loading="lazy">
+          <img class="what__img" data-what="friends" src="assets/img/ab-what-friends.webp" alt="한강 벚꽃 피크닉" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+
+      <a class="life__cta" href="#join" data-panel="join" data-reveal>
+        <span>다음 한 학기를 함께</span><span class="life__cta-go">JOIN US &#8594;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============ SHOWS ============ -->
+  <section class="panel panel--dark" id="shows" aria-label="공연과 영상">
+    <div class="panel__inner">
+      <div class="section__head">
+        <h2 class="section__title" data-reveal>SHOWS</h2>
+        <p class="section__note" data-reveal>정기공연 포스터 &amp; 셋리스트 · 2019 — 2026</p>
+      </div>
+      <div class="rail" id="projects-rail"></div>
+    </div>
+  </section>
+
+  <!-- ============ ACTIVITY ============ -->
+  <section class="panel" id="activity" aria-label="활동">
+    <div class="panel__inner">
+      <div class="section__head">
+        <h2 class="section__title" data-reveal>ACTIVITY</h2>
+        <p class="section__note" data-reveal>카드를 누르면 사진을 볼 수 있어요</p>
+      </div>
+      <div class="notes" id="notes-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ — 자주 묻는 질문 (인스타 모집 게시물 Q&A 기준) · 왼쪽 분류 고정 + 오른쪽 질문 ============ -->
+  <section class="panel panel--dark" id="faq" aria-label="자주 묻는 질문">
+    <div class="panel__inner faq-panel">
+      <div class="section__head">
+        <h2 class="section__title" data-reveal>FAQ</h2>
+        <p class="section__note" data-reveal>지원 전에 자주 묻는 질문</p>
+      </div>
+      <div class="faq-layout">
+        <aside class="faq__aside" data-reveal>
+          <p class="faq__aside-lead">궁금한 건 <br>여기서 먼저.</p>
+          <nav class="faq__nav" aria-label="질문 분류">
+          <a class="faq__nav-link is-active" href="#faq-apply" data-faq="apply"><span>지원</span><em>06</em></a>
+          <a class="faq__nav-link" href="#faq-activity" data-faq="activity"><span>활동</span><em>02</em></a>
+          <a class="faq__nav-link" href="#faq-club" data-faq="club"><span>운영</span><em>04</em></a>
+          </nav>
+          <a class="faq__ask" href="https://www.instagram.com/play_cheonggi/" target="_blank" rel="noopener">더 물어보기 · INSTAGRAM DM &#8599;</a>
+        </aside>
+        <div class="faq__groups">
+        <div class="faq__group" id="faq-apply">
+          <p class="faq__group-title" data-reveal><span>지원</span><span>APPLY</span></p>
+          <ol class="faq">
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+                  <span class="faq__num">01</span><span class="faq__text">실력이 부족해도 지원할 수 있나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a1" role="region" aria-labelledby="faq-q1">
+                <div><p>물론이에요. 청춘기획은 실력보다 <strong>책임감, 열정, 함께 어울리는 성격</strong>을 중점적으로 봅니다. 맡은 파트에 책임감 있게 임하고, 부원들과 즐겁게 어울릴 수 있다면 충분해요.</p></div>
+              </div>
+            </li>
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                  <span class="faq__num">02</span><span class="faq__text">어떤 파트를 모집하나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a2" role="region" aria-labelledby="faq-q2">
+                <div><p>음악팀은 보컬 · 기타 · 베이스 · 드럼 · 키보드, 기획홍보팀은 영상 편집과 디자인, 콘텐츠 기획, 공연 기획에 관심 있는 분을 모집해요. 학기마다 모집하는 파트와 인원이 달라서, 정확한 내용은 그 학기 모집 공고를 확인해 주세요.</p></div>
+              </div>
+            </li>
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                  <span class="faq__num">03</span><span class="faq__text">어떻게 지원하나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a3" role="region" aria-labelledby="faq-q3">
+                <div><p>1차 서류(구글폼)와 2차 면접으로 진행돼요. 음악팀은 본인을 잘 보여 줄 수 있는 1분 내외의 연주·노래 영상 2개를 함께 내 주세요. 보컬은 지정곡이 있는 학기도 있어요. 기획홍보팀은 포트폴리오나 작업물을 자유롭게 낼 수 있어요. 지원서 양식과 일정은 <a class="faq__link" href="https://linktr.ee/Chunggi" target="_blank" rel="noopener">링크트리</a>에서 볼 수 있어요.</p></div>
+              </div>
+            </li>
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+                  <span class="faq__num">04</span><span class="faq__text">면접 때 오디션도 보나요? 어떤 곡을 준비하면 되나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a4" role="region" aria-labelledby="faq-q4">
+                <div><p>음악팀은 면접에서 오디션을 봐요. 곡은 자유롭게 준비하면 되고, 영상으로 보낸 곡을 다시 해도 괜찮아요. 악기는 개인 악기를 가져와도 되고 빌릴 수도 있어요. 연주보다 면접 내용이 더 중요하니 부담 갖지 않아도 돼요.</p></div>
+              </div>
+            </li>
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+                  <span class="faq__num">05</span><span class="faq__text">작업물이 없어도 기획홍보팀에 지원할 수 있나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a5" role="region" aria-labelledby="faq-q5">
+                <div><p>네. 아직 다룰 수 있는 툴이 없어도 괜찮아요. 하고 싶은 활동, 배우고 싶은 마음, 함께하고 싶은 이유를 충분히 보여 주세요.</p></div>
+              </div>
+            </li>
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+                  <span class="faq__num">06</span><span class="faq__text">지원서 칸을 꽉 채워야 하나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a6" role="region" aria-labelledby="faq-q6">
+                <div><p>전혀 그렇지 않아요. 쓰고 싶은 만큼만 부담 없이 채워 주세요.</p></div>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="faq__group" id="faq-activity">
+          <p class="faq__group-title" data-reveal><span>활동</span><span>ACTIVITY</span></p>
+          <ol class="faq">
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a7" id="faq-q7">
+                  <span class="faq__num">07</span><span class="faq__text">합주는 언제, 어디서 하나요? 꼭 나가야 하나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a7" role="region" aria-labelledby="faq-q7">
+                <div><p>매주 일요일 16:00 – 18:00, 합정 · 홍대입구 · 신촌 인근 합주실에서 합주해요. 일주일에 한 번 두 시간이라 특별한 사유가 없다면 참여해 주셔야 해요. 미리 말하면 빠질 수 있지만, 잦은 불참은 불이익이 있을 수 있어요.</p></div>
+              </div>
+            </li>
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a8" id="faq-q8">
+                  <span class="faq__num">08</span><span class="faq__text">합주 말고는 어떤 활동을 하나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a8" role="region" aria-labelledby="faq-q8">
+                <div><p>학기 끝에는 직접 기획한 정기공연 무대에 서요. 그 밖에도 음악 콘텐츠 제작, 번개 모임과 MT, 스터디, 뒤풀이, 마니또처럼 서로 친해지는 활동을 함께해요. 자세한 모습은 <a class="faq__link" href="#activity" data-panel="activity">ACTIVITY</a>에서 볼 수 있어요.</p></div>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="faq__group" id="faq-club">
+          <p class="faq__group-title" data-reveal><span>운영</span><span>CLUB</span></p>
+          <ol class="faq">
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a9" id="faq-q9">
+                  <span class="faq__num">09</span><span class="faq__text">회비는 얼마이고, 어디에 쓰이나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a9" role="region" aria-labelledby="faq-q9">
+                <div><p>한 달 25,000원이에요. 합주실 대여와 공연장 대관 등 동아리 활동에만 쓰이고, 사용 내역은 모임통장으로 투명하게 공개해요.</p></div>
+              </div>
+            </li>
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a10" id="faq-q10">
+                  <span class="faq__num">10</span><span class="faq__text">성비는 어떻게 되나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a10" role="region" aria-labelledby="faq-q10">
+                <div><p>모집 중에는 정확히 공개하지 않아요. 기수마다 조금씩 달라요.</p></div>
+              </div>
+            </li>
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a11" id="faq-q11">
+                  <span class="faq__num">11</span><span class="faq__text">특정 단체와 관련된 동아리인가요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a11" role="region" aria-labelledby="faq-q11">
+                <div><p>아니요. 청춘기획은 대학생들이 자치적으로 운영하며, 정치 · 종교 · 시민 단체와 관련이 없어요.</p></div>
+              </div>
+            </li>
+            <li class="faq__item" data-reveal>
+              <h3 class="faq__h">
+                <button class="faq__q" type="button" aria-expanded="false" aria-controls="faq-a12" id="faq-q12">
+                  <span class="faq__num">12</span><span class="faq__text">더 궁금한 게 있으면 어디로 물어보나요?</span><span class="faq__icon" aria-hidden="true"></span>
+                </button>
+              </h3>
+              <div class="faq__a" id="faq-a12" role="region" aria-labelledby="faq-q12">
+                <div><p><a class="faq__link" href="https://www.instagram.com/play_cheonggi/" target="_blank" rel="noopener">인스타그램 DM</a>이나 <a class="faq__link" href="mailto:cccheonggi@gmail.com">cccheonggi@gmail.com</a>으로 편하게 물어봐 주세요. 모집 기간에는 링크트리의 오픈채팅방에서도 답해 드려요.</p></div>
+              </div>
+            </li>
+          </ol>
+        </div>
+          <a class="life__cta faq__cta" href="#join" data-panel="join" data-reveal>
+            <span>궁금한 게 풀렸다면</span><span class="life__cta-go">JOIN US &#8594;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOIN US — detroit.paris/contact 구성 참고 ============ -->
+  <section class="panel panel--join" id="join" aria-label="함께하기">
+    <div class="join">
+      <h2 class="join__title join__title--l" aria-label="JOIN THE CHEONG GI"><span class="join__word">JOIN</span></h2>
+      <p class="join__title join__title--r" aria-hidden="true">
+        <span class="join__word">THE</span>
+        <span class="join__word">CHEONG</span>
+        <span class="join__word">GI</span>
+      </p>
+
+      <ul class="join__list">
+        <li data-reveal>
+          <p class="join__name">WEEKLY JAM</p>
+          <p class="join__detail">매주 일요일 16:00 – 18:00 · 합정 · 홍대입구 · 신촌 인근 합주실</p>
+        </li>
+        <li data-reveal>
+          <p class="join__name">MONTHLY FEE</p>
+          <p class="join__detail">월 25,000원 · 합주실 대여 등 활동에만 쓰이며 모임통장으로 투명하게 공개</p>
+        </li>
+        <li data-reveal>
+          <p class="join__name">NEXT SHOW</p>
+          <p class="join__detail">26-2 정기공연 · 2027년 2월 예정</p>
+        </li>
+        <li data-reveal>
+          <p class="join__name">HOW TO JOIN</p>
+          <p class="join__detail">서류 지원 → 대면 면접 (음악팀은 자유곡 오디션) · 실력보다 책임감 · 열정 · 함께 어울리는 마음을 봅니다</p>
+        </li>
+        <li data-reveal>
+          <p class="join__name">RECRUITING</p>
+          <a class="dotlink" href="https://linktr.ee/Chunggi" target="_blank" rel="noopener"><span class="dotlink__dot"></span>APPLY</a>
+        </li>
+      </ul>
+
+      <div class="join__foot" data-reveal>
+        <a class="dotlink" href="mailto:cccheonggi@gmail.com"><span class="dotlink__dot"></span>CCCHEONGGI@GMAIL.COM</a>
+        <a class="dotlink" href="https://www.instagram.com/play_cheonggi/" target="_blank" rel="noopener"><span class="dotlink__dot"></span>INSTAGRAM</a>
+        <a class="dotlink" href="https://www.youtube.com/@cheong-gi3039" target="_blank" rel="noopener"><span class="dotlink__dot"></span>YOUTUBE</a>
+        <a class="dotlink" href="https://linktr.ee/Chunggi" target="_blank" rel="noopener"><span class="dotlink__dot"></span>LINKTREE</a>
+      </div>
+
+      <div class="join__copy" data-reveal>
+        <p>매주 일요일엔 합주실에서, 한 학기의 끝엔 무대 위에서.</p>
+        <p class="join__rights">© 2026 청춘기획 CHEONG-GI · Site by 김민재</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ SHOWS 공연 상세 창 (script.js 가 내용을 채움) ============ -->
+<div class="show" id="show" role="dialog" aria-modal="true" aria-labelledby="show-title" hidden>
+  <div class="show__inner">
+    <figure class="show__view"><img alt=""></figure>
+    <div class="show__info">
+      <p class="show__term"></p>
+      <h3 class="show__title" id="show-title"></h3>
+      <p class="show__sub"></p>
+      <dl class="show__meta"></dl>
+      <div class="show__thumbs"></div>
+      <div class="show__videos">
+        <p class="show__label">VIDEOS</p>
+        <ul></ul>
+      </div>
+    </div>
+  </div>
+  <button class="show__close" type="button" aria-label="닫기">CLOSE</button>
+</div>
+
+<!-- ACTIVITY 사진 창 — 카드를 누르면 그 카테고리 사진이 차례로 펼쳐집니다 -->
+<div class="gal" id="gal" role="dialog" aria-modal="true" aria-labelledby="gal-title" hidden>
+  <div class="gal__head">
+    <p class="gal__label"></p>
+    <h3 class="gal__title" id="gal-title"></h3>
+    <p class="gal__count"></p>
+  </div>
+  <div class="gal__grid"></div>
+  <button class="show__close gal__close" type="button" aria-label="닫기">CLOSE</button>
+  <div class="gal__zoom" hidden>
+    <img alt="">
+    <button class="gal__nav gal__nav--prev" type="button" aria-label="이전 사진">&#8592;</button>
+    <button class="gal__nav gal__nav--next" type="button" aria-label="다음 사진">&#8594;</button>
+    <p class="gal__pos"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
