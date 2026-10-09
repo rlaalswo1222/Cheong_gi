@@ -734,8 +734,7 @@ button.note__more{background:none;border:0;border-bottom:1px solid currentColor;
   .gal{padding-top:64px;}
   /* ABOUT (폰) */
   .ab-hero{grid-template-columns:1fr;gap:28px;padding-bottom:56px;}
-  .ab-hero__ph{order:-1;min-height:0;aspect-ratio:4/5;}
-  .ab-hero__ph img{object-position:42% 50%;}
+  .ab-hero__ph{order:-1;min-height:0;aspect-ratio:1/1;}
   .ab-hero__big{font-size:7.2vw;}
   .ab-teams{grid-template-columns:1fr;}
   .ab-stats{grid-template-columns:1fr;}
