@@ -7,3 +7,6 @@ dist/
 *token*.txt
 .vercel/
 .env
+
+# 사이트에 쓰지 않는 보관 자료(TEAMS 실명·사진 등) — 이 컴퓨터에만 둠
+_archive/
