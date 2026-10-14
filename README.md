@@ -35,7 +35,7 @@
 빌드 도구 없이 HTML · CSS · JavaScript만으로 만들었습니다.
 
 ```bash
-git clone https://github.com/rlaalswo1222/cheong_gi.git
+git clone https://github.com/rlaalswo1222/Cheong_gi.git
 ```
 
 `index.html`을 브라우저로 열면 바로 볼 수 있습니다.
