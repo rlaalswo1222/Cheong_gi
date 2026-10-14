@@ -7,7 +7,7 @@
 하는 일
   1. 채널의 영상 목록 페이지에서 최근 영상 ID와 제목을 읽어옵니다.
   2. 썸네일(maxresdefault, 없으면 hqdefault)을 받아 1120x630으로 저장합니다.
-     -> assets/img/hero-01.jpg ... hero-NN.jpg  (이전 hero-*.jpg 는 정리)
+     -> assets/img/hero-01.jpg/.webp ... hero-NN  (이전 hero-* 는 정리)
   3. script.js 의 HERO_IMAGES 목록을 새 파일/제목으로 다시 씁니다.
 
 필요 패키지: pillow  (pip install pillow)
@@ -144,7 +144,7 @@ def main():
 
     os.makedirs(IMG_DIR, exist_ok=True)
     for f in os.listdir(IMG_DIR):
-        if re.fullmatch(r"hero-\d+\.jpg", f):
+        if re.fullmatch(r"hero-\d+\.(jpg|webp)", f):
             os.remove(os.path.join(IMG_DIR, f))
 
     entries = []
@@ -156,6 +156,7 @@ def main():
         name = "hero-%02d.jpg" % (len(entries) + 1)
         im = Image.open(io.BytesIO(raw)).convert("RGB").resize(SIZE, Image.LANCZOS)
         im.save(os.path.join(IMG_DIR, name), quality=84, optimize=True)
+        im.save(os.path.join(IMG_DIR, name[:-4] + ".webp"), "WEBP", quality=82, method=5)   # 사이트는 WebP 를 먼저 불러옴
         entries.append((name, vid, title or ("라이브 %02d" % i)))
         print("  %s  %s" % (name, title[:40]))
 

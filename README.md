@@ -1,95 +1,132 @@
-# 청춘기획 / CHEONG-GI
+<div align="center">
 
-detroit.paris 레퍼런스를 기반으로 만든 대학생 연합 밴드 동아리 소개 사이트.
-공개 주소: https://cheonggi.vercel.app  (재배포: `python deploy-vercel.py <토큰파일>`)
-**세로 스크롤 없음** — 화면 전환은 상단 네비게이션(로고 포함)으로만 합니다.
+<img src="assets/img/og-image.jpg" alt="CHEONG-GI 청춘기획" width="720">
+
+# 청춘기획 CHEONG-GI
+
+**대학생 연합 밴드 동아리 청춘기획의 공식 웹사이트**
+
+[**cheonggi.vercel.app**](https://cheonggi.vercel.app) &nbsp;·&nbsp;
+[Instagram](https://www.instagram.com/play_cheonggi/) &nbsp;·&nbsp;
+[YouTube](https://www.youtube.com/@cheong-gi3039) &nbsp;·&nbsp;
+[지원하기](https://linktr.ee/Chunggi)
+
+</div>
+
+<br>
+
+## 화면 구성
+
+한 화면씩 넘겨 보는 구조입니다. 상단 메뉴를 누르면 화면이 바뀌고, 주소 끝에 `#about`처럼 붙이면 그 화면이 바로 열립니다.
+
+| 화면 | 내용 |
+|---|---|
+| **HOME** | 유튜브 영상 썸네일이 흐르는 첫 화면 |
+| **ABOUT** | 동아리 소개, 주요 숫자, WHAT WE DO |
+| **SHOWS** | 역대 정기공연 포스터 · 누르면 셋리스트와 공연 정보 |
+| **ACTIVITY** | 활동 카테고리 · 누르면 사진이 펼쳐지는 갤러리 |
+| **FAQ** | 지원 전에 자주 묻는 질문 |
+| **JOIN US** | 합주 시간, 회비, 다음 공연, 지원 링크 |
+
+<br>
+
+## 시작하기
+
+빌드 도구 없이 HTML · CSS · JavaScript만으로 만들었습니다.
+
+```bash
+git clone https://github.com/rlaalswo1222/cheong_gi.git
+```
+
+`index.html`을 브라우저로 열면 바로 볼 수 있습니다.
+
+<br>
+
+## 폴더 구조
 
 ```
-index.html              마크업 (화면 구조)
-styles.css              스타일 (타이포/레이아웃/반응형)
-script.js               히어로 스트립 + 콘텐츠 데이터 + 인터랙션
-assets/img/             사진 폴더
-update-thumbnails.py    유튜브 최신 썸네일 갱신
-build-artifact.py       웹 배포용 단일 HTML 생성 -> dist/cheonggi.html
+index.html             화면 구조와 고정 문구 (ABOUT · FAQ · JOIN US)
+styles.css             디자인 · 애니메이션 · 모바일 대응
+script.js              데이터와 동작 (공연 목록 · 활동 갤러리 · 홈 썸네일)
+assets/img/            사진 (같은 이름의 .webp 와 .jpg)
+update-thumbnails.py   홈 화면 유튜브 썸네일 갱신
+deploy-vercel.py       Vercel 배포
 ```
 
-## 유튜브 썸네일 갱신
+<br>
 
+## 자주 고치는 곳
+
+학기가 바뀌면 아래 내용을 확인해 주세요.
+
+| 바꿀 내용 | 파일 | 찾을 곳 |
+|---|---|---|
+| 합주 시간 · 회비 · 다음 공연 · 지원 링크 | `index.html` | `join__list` |
+| ABOUT 숫자 (현재 부원 수 등) | `index.html` | `ab-stats` |
+| FAQ 질문과 답 | `index.html` | `faq__item` |
+| 정기공연 추가 | `script.js` | `const PROJECTS` 맨 위에 한 줄 |
+| 활동 카테고리 · 갤러리 사진 | `script.js` | `const NOTES`, `const GAL` |
+
+<details>
+<summary><b>정기공연 추가 예시</b></summary>
+
+<br>
+
+포스터를 `assets/img/work-17.jpg`로 넣고, `PROJECTS` 맨 위에 추가합니다.
+여름 공연은 그해 1학기(`26-1`), 겨울 공연(12~2월)은 앞 해 2학기(`26-2`)로 적습니다.
+
+```js
+{ term: '26-2', title: '공연 이름', file: 'work-17.jpg', date: '2027.02.00 SUN',
+  time: '18:00', venue: '공연장', songs: '20곡', setlist: ['sl-08.jpg'] },
 ```
-pip install pillow                # 최초 1회
+
+</details>
+
+<br>
+
+## 사진 넣기
+
+사이트는 용량이 작은 **WebP**를 먼저 불러오고, 열지 못하는 브라우저에서만 **JPG**를 씁니다.
+그래서 사진은 **같은 이름으로 두 형식을 함께** 넣어 주세요. 코드에는 `.jpg` 이름만 적으면 됩니다.
+
+```bash
+pip install pillow
+python -c "from PIL import Image; Image.open('assets/img/work-17.jpg').save('assets/img/work-17.webp', quality=80)"
+```
+
+- 긴 쪽 **1400px 안팎**이면 충분합니다. 원본(4000px 이상)을 그대로 넣으면 사이트가 무거워집니다.
+- 갤러리 사진은 크게 보기용 `gal-이름-01`과 목록용 작은 사진 `gal-이름-01-t` 두 장이 필요합니다.
+
+<br>
+
+## 홈 썸네일 갱신
+
+유튜브 채널의 최신 영상 썸네일로 홈 화면을 다시 채웁니다.
+
+```bash
 python update-thumbnails.py       # 최근 30개
 python update-thumbnails.py 12    # 최근 12개만
 ```
 
-채널(@cheong-gi3039)에서 최신 영상 목록을 읽어 썸네일을 받고,
-`assets/img/hero-01.jpg ...` 로 저장한 뒤 `script.js` 의 `HERO_IMAGES` 를 다시 씁니다.
-영상 제목은 이미지 대체 텍스트(alt)로 들어갑니다.
+<br>
 
-매일 자동으로 돌리려면 (Windows 작업 스케줄러, 매일 오전 9시):
+## 배포
 
+[Vercel](https://vercel.com)에 올라가 있습니다. 바뀐 파일만 올라가므로 보통 1분 안에 끝납니다.
+
+```bash
+python deploy-vercel.py <토큰 파일 경로>
 ```
-schtasks /create /tn "CheongGi thumbnails" /sc daily /st 09:00 /tr "python C:/Users/rlaal/Desktop/Cheong-gi/update-thumbnails.py"
-```
 
-단, 웹 주소(claude.ai Artifact)는 외부 이미지와 외부 요청이 차단되어 사진이 파일 안에
-내장됩니다. 즉 **웹 버전은 자동으로 갱신되지 않습니다.** 갱신한 뒤
-`python build-artifact.py` 로 다시 만들고 Claude Code 에 재배포를 요청하세요.
+> [!IMPORTANT]
+> 토큰 파일은 **프로젝트 폴더 밖**에 두세요. 토큰은 [vercel.com/account/tokens](https://vercel.com/account/tokens)에서 만들 수 있습니다.
 
-바로 보기: `index.html` 더블클릭 (별도 서버 필요 없음).
+<br>
 
-## 사진 넣기
+---
 
-`assets/img/` 안에 아래 이름으로 넣으면 즉시 반영됩니다.
-파일이 없으면 임시 이미지(picsum.photos)가 대신 보입니다.
+<div align="center">
 
-| 위치 | 파일명 | 권장 |
-|---|---|---|
-| 히어로 스트립 | `hero-01.jpg` ~ `hero-12.jpg` | 16:9 가로 (유튜브 썸네일 1120×630) |
-| 팀 카드 | `member-01.jpg` ~ `member-04.jpg` | 3:4 세로 (보컬 / 기타·베이스 / 드럼·키보드 / 기획홍보) |
-| 공연 카드 | `work-01.jpg` ~ `work-06.jpg` | 16:9 (공연 영상 썸네일) |
-| 로고 | `logo.png` | 흰색 마크 + 투명 배경 (아래 설명 참고) |
+Site by **김민재** · © 2026 청춘기획 CHEONG-GI
 
-`logo.png`는 흰색으로 칠해진 마크입니다. 네비게이션 바가 `mix-blend-mode: difference`로
-동작하기 때문에, 흰 화면에서는 검정으로 어두운 화면에서는 흰색으로 자동 반전됩니다.
-그냥 열어보면 보이지 않는 게 정상이며, 일반 용도의 검정 버전은 `logo-black.png`입니다.
-
-현재 히어로 12장은 유튜브 채널 [@cheong-gi3039](https://www.youtube.com/@cheong-gi3039/videos)의
-라이브 영상 썸네일을 받아 넣은 것입니다. 새 영상이 올라오면 같은 이름으로 덮어쓰면 됩니다
-(`https://i.ytimg.com/vi/<영상ID>/maxresdefault.jpg`).
-
-다른 비율의 사진을 쓸 때는 `script.js`의 `HERO_IMAGES`에서 각 항목의 `ar`(가로÷세로) 값을
-같이 고쳐주세요. 지금은 유튜브 썸네일 비율인 `1.78`로 통일되어 있습니다.
-
-## 텍스트 고치기
-
-- 헤드라인 / 소개 문구 / 섹션 제목 → `index.html`
-- 팀 카드, 공연 카드(유튜브 영상 ID `yt`), 활동 목록 → `script.js` 의 `MEMBERS`, `PROJECTS`, `NOTES` 배열
-- 합주 일정·다음 공연·지원 링크·연락처 → `index.html` 의 JOIN US
-
-학기마다 기수(26-2 등), 모집 조건, 다음 공연 일정을 갱신하세요.
-
-## 히어로 스트립 애니메이션 조절
-
-`script.js` 안의 값들:
-
-| 값 | 뜻 | 기본 |
-|---|---|---|
-| `SPEED` | 휠 1px당 가로 이동량 | `1.15` |
-| `EASE` | 감속 정도 (작을수록 더 미끄럽게) | `0.085` |
-| `MIN_H` / `RANGE_H` | 왼쪽 최소 높이 / 오른쪽까지의 증가폭 | 스트립 높이의 `13%` / `79%` |
-| `Math.pow(t, 0.8)` | 크기 증가 곡선 | `0.8` |
-
-이미지는 끝에서 끝으로 순환(무한 루프)하므로 어느 방향으로 굴려도 끊기지 않습니다.
-
-## 화면 구조
-
-세로 스크롤이 없고, 각 화면이 한 장씩 전환됩니다.
-
-| 화면 | 이동 방법 | 휠/터치 동작 |
-|---|---|---|
-| HOME | 로고 클릭 | 히어로 이미지가 좌우로 이동 |
-| ABOUT / TEAMS / ACTIVITY / JOIN US | 상단 메뉴 | (화면보다 내용이 길 때만) 내부 이동 |
-| SHOWS | 상단 메뉴 | 공연 카드가 좌우로 이동 (누르면 유튜브) |
-
-주소창의 `#join` 같은 해시로 특정 화면을 바로 열 수 있습니다.
-스크롤바는 전 화면에서 숨겨져 있습니다.
+</div>
